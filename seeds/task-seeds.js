@@ -1,6 +1,6 @@
 const { Tasks } = require('../models');
 
-const taskdata = [
+const taskData = [
     {
         title: 'Oil Change',
         task_info: 'Change oil in 3000 miles',
@@ -39,6 +39,6 @@ const taskdata = [
     }
 ];
 
-const seedsTasks = () => Tasks.bulkCreate(taskdata);
+const seedsTasks = () => Tasks.bulkCreate(taskData);
 
 module.exports =  seedsTasks;
