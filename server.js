@@ -1,10 +1,10 @@
 const path = require('path');
 const nodeMailer = require('nodemailer');
 const express = require('express');
-//const controllers = require('./controllers');
+const controllers = require('./controllers');
 const sequelize = require('./config/connection');
 const dotEnv = require('dotenv');
-//const session = require('express-session');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
 
@@ -12,7 +12,7 @@ const mysql = require('mysql2');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // const sess = {
 //   secret: 'Super secret secret',
