@@ -10,20 +10,19 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'task_info',
-      'task_timer',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'task_timer'
     ],
     include: [
       {
         model: User,
-        attributes: ['username']
+        attributes: ['email']
       }
     ]
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
-      res.render('homepage', { posts });
+      res.render('login', { posts });
     })
     .catch(err => {
       console.log(err);
