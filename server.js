@@ -1,11 +1,11 @@
 const path = require('path');
 const nodeMailer = require('nodemailer');
 const express = require('express');
-//const routes = require('./routes');
+//const controllers = require('./controllers');
 const sequelize = require('./config/connection');
 const dotEnv = require('dotenv');
 //const session = require('express-session');
-//const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
 
 
@@ -28,9 +28,9 @@ const PORT = process.env.PORT || 3001;
 
 // const helpers = require('./utils/helpers');
 
-// const hbs = exphbs.create({ helpers });
+ const hbs = exphbs.create({ }); //<-- potentially add helpers
 
-//app.engine('handlebars', hbs.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());

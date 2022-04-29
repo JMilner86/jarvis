@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+}
+
+form {
+    padding: 100px;
+    border: 3px red solid;
+}
+
+form label {
+    display: block;
+    padding: 3px;
+}
+
+form input {
+    padding: 3px;
+}
+
+form button {
+    margin-top: 3px;
+}
