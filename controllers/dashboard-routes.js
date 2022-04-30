@@ -9,7 +9,7 @@ router.get('/', withAuth, (req, res) => {
     console.log('======================');
     Tasks.findAll({
     where: {
-        user_id: req.session.user_id
+        id: req.session.id
     },
     attributes: [
         'id',
