@@ -1,6 +1,6 @@
 const Tasks = require('../../models/Tasks');
 const User = require('../../models/User');
-// const withAuth = require('../../');
+const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
 // Retrieves all the Tasks associated with the logged in user. (Thats what it's supposed to do)
@@ -27,8 +27,8 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Tasks.create({
     title: req.body.title,
-    post_url: req.body.post_url,
-    user_id: req.session.user_id
+    task_info: req.body.task_info,
+    task_timer: req.session.task_timer
   })
     .then(dbTasksData => res.json(dbTasksData))
     .catch(err => {

@@ -2,28 +2,25 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Tasks } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
-    Post.findAll({
+    Tasks.findAll({
     where: {
         user_id: req.session.user_id
     },
     attributes: [
         'id',
-        'email'
-    ],
-    include: [
-        {
-        model: Tasks,
-        attributes: ['id', 'task_info', 'title', 'task_timer', '']
-        }
+        'title',
+        'task_info',
+        'task_timer'
     ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbTaskData => {
+        const tasks = dbTaskData.map(tasks => tasks.get({ plain: true }));
+        res.render('dashboard', { tasks, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
