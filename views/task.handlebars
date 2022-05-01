@@ -8,11 +8,11 @@
   <form class="new-post-form">
     <div>
       <label for="task-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <input type="text" id="task-title"/>
     </div>
     <div>
       <label for="task_info">Task</label>
-      <input id="task_info" name="task_info" />
+      <input id="task_info"/>
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
@@ -24,7 +24,7 @@
   <ol>
     {{#each tasks as |task|}}
     <li>
-      {{> task_info task}}
+      {{!-- {{> task_info task}} --}}
       <a href="/dashboard/edit/{{id}}" class="edit-link">Edit Task</a>
     </li>
     {{/each}}
