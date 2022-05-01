@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'task_info',
-        'task_timer'
+        // 'task_timer'
       ]
     }
   ]
@@ -44,7 +44,8 @@ router.get('/:id', (req, res) => {
         'id',
         'title',
         'task_info',
-        'task_timer'],
+        // 'task_timer'
+      ],
         include: {
           model: Tasks,
           attributes: ['title']

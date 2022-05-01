@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'task_info',
-      'task_timer'
+      // 'task_timer'
       ]
     })
     .then(dbTaskData => {
@@ -27,18 +27,18 @@ router.get('/', (req, res) => {
   });
 });
 
-// router.post('/', withAuth, (req, res) => {
-//   Tasks.create({
-//     title: req.body.title,
-//     task_info: req.body.task_info,
-//     task_timer: req.session.task_timer
-//   })
-//     .then(dbTasksData => res.json(dbTasksData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.post('/', withAuth, (req, res) => {
+  Tasks.create({
+    title: req.body.title,
+    task_info: req.body.task_info,
+    // task_timer: req.session.task_timer
+  })
+    .then(dbTasksData => res.json(dbTasksData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 

@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'task_info',
-      'task_timer'
+      // 'task_timer'
     ],
     include: [
       {
