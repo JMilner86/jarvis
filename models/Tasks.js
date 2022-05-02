@@ -26,10 +26,10 @@ Tasks.init(
             key: 'id'
           }
         },
-        task_timer: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
+        // task_timer: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false
+        // }
       },
       {
         sequelize,

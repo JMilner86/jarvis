@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'title',
         'task_info',
-        'task_timer'
+        // 'task_timer'
     ]
     })
     .then(dbTaskData => {

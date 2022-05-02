@@ -26,19 +26,35 @@
 // document.querySelector('.add-button').addEventListener('submit', createTask);
 
 
-async function createTask() {
-    const response = await fetch('/api/users/tasks', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' }
+async function createTask(event) {
+  event.preventDefault();
+
+  const title = document.querySelector('textarea[name="task-title"]');
+  const task_info = document.querySelector('textarea[name="task-info"]');
+
+
+  if (title && task_info) {
+    const response = await fetch('/tasks', {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        task_info
+        // task_timer
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
-  
+
     if (response.ok) {
-      document.location.replace('/tasks');
+      document.location.reload();
     } else {
       alert(response.statusText);
     }
   }
+}
+
   
-  document.querySelector('#add-button').addEventListener('click', createTask);
+  document.querySelector('.task-button').addEventListener('submit', createTask);
 
 
