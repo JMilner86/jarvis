@@ -12,7 +12,7 @@
       <label for="task_info">Task</label>
       <input id="task_info"/>
     </div>
-    <button type="submit" class="task-button">Create</button>
+    <button type="submit">Create</button>
 
     {{!-- <input  type="date"  name="DateOfBirth"class="form-control"  ng-model="patient.DateOfBirth" format="dd/mm/yyyy"  required="true" />
       <span class="input-group-btn">
@@ -24,13 +24,13 @@
   
 </section>
 
-{{#if tasks.length}}
+{{#if task.length}}
 <section>
   <h2>Your Tasks</h2>
   <ol>
-    {{#each tasks as |task|}}
-    <li name="task-title">
-      {{!-- {{> task_info task}} --}}
+    {{#each task as |task|}}
+    <li name="task-title" id="task-title">
+       {{!-- {{> task-info task}}  --}}
       <a href="/dashboard/edit/{{id}}" class="edit-link">{{title}}</a>
     </li>
     {{/each}}

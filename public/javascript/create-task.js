@@ -29,8 +29,8 @@
 async function createTask(event) {
   event.preventDefault();
 
-  const title = document.querySelector('textarea[name="task-title"]');
-  const task_info = document.querySelector('textarea[name="task-info"]');
+  const title = document.querySelector('#task-title').value.trim();
+  const task_info = document.querySelector('#task-info');
 
 
   if (title && task_info) {
@@ -39,7 +39,7 @@ async function createTask(event) {
       body: JSON.stringify({
         title,
         task_info
-        // task_timer
+        
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -54,7 +54,6 @@ async function createTask(event) {
   }
 }
 
-  
   document.querySelector('.task-button').addEventListener('submit', createTask);
 
 

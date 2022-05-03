@@ -1,6 +1,6 @@
-const { Task } = require('../models');
+const { Task } = require('../../models');
 //const User = require('../../models/User');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
 // Retrieves all the Task associated with the logged in user. (Thats what it's supposed to do)

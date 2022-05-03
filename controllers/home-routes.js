@@ -1,11 +1,11 @@
 // Routes for the login page
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Tasks } = require('../models');
+const { User, Task } = require('../models');
 
 router.get('/', (req, res) => {
   console.log('======================');
-  Tasks.findAll({
+  Task.findAll({
     attributes: [
       'id',
       'title',
@@ -20,9 +20,9 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbTaskData => {
-      const tasks = dbTaskData.map(tasks => tasks.get({ plain: true }));
+      const task = dbTaskData.map(task => task.get({ plain: true }));
 
-      res.render('login', { tasks });
+      res.render('login', { task });
     })
     .catch(err => {
       console.log(err);

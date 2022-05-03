@@ -1,5 +1,5 @@
 
-const Tasks = require('../../models/Tasks');
+const Task = require('../../models/Task');
 const User  = require('../../models/User');
 const router = require('express').Router();
 
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       ],
       include: [
         {
-      model: Tasks,
+      model: Task,
       attributes: [
         'id',
         'title',
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
     },
     include: [
       {
-        model: Tasks,
+        model: Task,
         attributes: [        
         'id',
         'title',
@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
         // 'task_timer'
       ],
         include: {
-          model: Tasks,
+          model: Task,
           attributes: ['title']
         }
       }
