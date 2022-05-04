@@ -1,8 +1,8 @@
-const Tasks = require('./Tasks');
+const Task = require('./Task');
 const User = require('./User');
 
-User.hasMany(Tasks);
-Tasks.belongsTo(User);
+User.hasMany(Task);
+Task.belongsTo(User);
 
 
-module.exports = {Tasks, User};
+module.exports = {Task, User};

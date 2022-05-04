@@ -29,21 +29,18 @@
 async function createTask(event) {
   event.preventDefault();
 
-  const title = document.querySelector('textarea[name="task-title"]');
-  const task_info = document.querySelector('textarea[name="task-info"]');
+  const title = document.querySelector('textarea[name="task-title"]').value;
+  const task_info = document.querySelector('textarea[name="task-info"]').value;
 
 
   if (title && task_info) {
-    const response = await fetch('/tasks', {
-      method: 'POST',
+    const response = await fetch('/api/tasks', {
+      method: 'post',
       body: JSON.stringify({
         title,
         task_info
-        // task_timer
       }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {

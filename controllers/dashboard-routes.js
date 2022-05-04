@@ -28,7 +28,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/tasks', withAuth, (req, res) => {
+//router.get('/tasks', withAuth, (req, res) => {
     // Post.findByPk(req.params.id, {
     // attributes: [
     //     'id',
@@ -67,6 +67,6 @@ router.get('/tasks', withAuth, (req, res) => {
     // .catch(err => {
     //     res.status(500).json(err);
     // });
-});
+//});
 
 module.exports = router;
