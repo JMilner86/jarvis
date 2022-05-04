@@ -1,5 +1,6 @@
-const { Task } = require('../../models');
-//const User = require('../../models/User');
+const connection = require('../../config/connection');
+const { Task, User } = require('../../models');
+// const User = require('../../models/User');
 const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
@@ -7,9 +8,9 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
   console.log('==============')
     Task.findAll({
-      // where: {
-      //   id: req.params.User
-      // },
+      where: {
+        id: req.params.User
+      },
       attributes: [
       'id',
       'title',

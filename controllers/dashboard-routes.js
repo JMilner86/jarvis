@@ -5,11 +5,11 @@ const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
+    console.log(req.session.id);
     console.log('======================');
     Task.findAll({
     where: {
-        id: req.session.id
+        user_id: req.session.id
     },
     attributes: [
         'id',
@@ -19,6 +19,7 @@ router.get('/', withAuth, (req, res) => {
     ]
     })
     .then(dbTaskData => {
+        console.log(dbTaskData);
         const task = dbTaskData.map(task => task.get({ plain: true }));
         res.render('dashboard', { task, loggedIn: true });
     })
