@@ -13,29 +13,10 @@
       <input id="task_info" type="text"/>
     </div>
     <button type="submit" class="task-button">Create</button>
-
-    {{!-- <input  type="date"  name="DateOfBirth"class="form-control"  ng-model="patient.DateOfBirth" format="dd/mm/yyyy"  required="true" />
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-disabled="patient.PatientId" ng-click="open()">
-          <i class="fa fa-calendar"></i>
-        </button> --}}
-      {{!-- </span> --}}
   </form>
   
 </section>
 
-
-<section>
-  <h2>Your Tasks</h2>
-  <ol>
-    {{#each task as |task|}}
-    <li name="task-title">
-  {{> task-info task}}
-      {{title}}
-    </li>
-    {{/each}}
-  </ol>
-</section>
 
 
 
