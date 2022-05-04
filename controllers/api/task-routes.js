@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
 // Retrieves all the Task associated with the logged in user. (Thats what it's supposed to do)
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   console.log('==============')
     Task.findAll({
       where: {
