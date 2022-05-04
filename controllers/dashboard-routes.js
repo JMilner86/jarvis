@@ -1,13 +1,13 @@
 // Routes for the login page
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Tasks } = require('../models');
+const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
-    Tasks.findAll({
+    Task.findAll({
     where: {
         id: req.session.id
     },
@@ -19,8 +19,8 @@ router.get('/', withAuth, (req, res) => {
     ]
     })
     .then(dbTaskData => {
-        const tasks = dbTaskData.map(tasks => tasks.get({ plain: true }));
-        res.render('dashboard', { tasks, loggedIn: true });
+        const task = dbTaskData.map(task => task.get({ plain: true }));
+        res.render('dashboard', { task, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -28,7 +28,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-//router.get('/tasks', withAuth, (req, res) => {
+router.get('/Task', withAuth, (req, res) => {
     // Post.findByPk(req.params.id, {
     // attributes: [
     //     'id',

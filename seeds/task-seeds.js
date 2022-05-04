@@ -1,4 +1,4 @@
-const { Tasks } = require('../models');
+const { Task } = require('../models');
 
 const taskData = [
     {
@@ -39,6 +39,6 @@ const taskData = [
     }
 ];
 
-const seedsTasks = () => Tasks.bulkCreate(taskData);
+const seedsTask = () => Task.bulkCreate(taskData);
 
-module.exports =  seedsTasks;
+module.exports =  seedsTask;

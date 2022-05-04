@@ -1,4 +1,4 @@
-const { Model, DataTypes, INTEGER } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Task extends Model {}
@@ -35,7 +35,7 @@ Task.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'tasks'
+        modelName: 'task'
       }
     );
     
