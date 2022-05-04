@@ -20,9 +20,17 @@
                                 <p class="text-gray fst-italic mb-0">05 December 2020</p>
                             </div>
                         </div>
+                        <ol>
+                            {{#each task as |task|}}
+                        <li name="task-title">
+                            {{> task-info task}}
+                            <a href="/dashboard/edit/{{id}}" class="edit-link">{{title}}</a>
+                        </li>
+                        {{/each}}
+                        </ol>
                         <div class="form-check mb-3">
                             <input class="form-check-input" id="flexCheck1" type="checkbox" checked>
-                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{title}}</span></label>
+                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">things</span></label>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" id="flexChec2" type="checkbox">
@@ -54,19 +62,15 @@
         </div>
     </div>
 </div>
-{{#if task.length}}
+
 <section>
   <h2>Your Tasks</h2>
-  <ol>
-    {{#each task as |task|}}
-    <li name="task-title">
-       {{> task-info task}} 
-      <a href="/dashboard/edit/{{id}}" class="edit-link">{{title}}</a>
-    </li>
-    {{/each}}
-  </ol>
+  <ol> hoob </ol>
+  <li name="task-title"></li>
+  {{> task-info task}}
+  {{title}}
 </section>
-{{/if}}
+
 </section>
 
 

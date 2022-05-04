@@ -5,7 +5,7 @@ class Task extends Model {}
 
 Task.init(
     {
-        id: {
+        task_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
@@ -19,13 +19,13 @@ Task.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        user_id: {
+        id: {
           type: DataTypes.INTEGER,
           references: {
-            model: 'user',
+            model: 'User',
             key: 'id'
           }
-        },
+        }
         // task_timer: {
         //     type: DataTypes.INTEGER,
         //     allowNull: false

@@ -29,7 +29,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/Task', withAuth, (req, res) => {
+// router.get('/Task', withAuth, (req, res) => {
     // Post.findByPk(req.params.id, {
     // attributes: [
     //     'id',
