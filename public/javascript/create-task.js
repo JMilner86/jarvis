@@ -40,9 +40,7 @@ async function createTask(event) {
         task_info
         
       }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {

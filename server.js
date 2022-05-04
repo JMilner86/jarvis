@@ -7,6 +7,7 @@ const dotEnv = require('dotenv');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
+const handlebars = require('handlebars');
 
 
 const app = express();
