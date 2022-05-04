@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/tasks', withAuth, (req, res) => {
   Task.create({
     title: req.body.title,
     task_info: req.body.task_info,

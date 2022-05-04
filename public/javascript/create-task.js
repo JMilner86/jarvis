@@ -29,12 +29,12 @@
 async function createTask(event) {
   event.preventDefault();
 
-  const title = document.querySelector('#task-title').value.trim();
-  const task_info = document.querySelector('#task-info');
-
-
-  if (title && task_info) {
-    const response = await fetch('/tasks', {
+  const title = document.querySelector('#task-title').value;
+  const task_info = document.querySelector('#task_info').value;
+console.log('1,2,3')
+console.log(title, task_info);
+  // if (title && task_info) {
+    const response = await fetch('/api/tasks', {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -52,8 +52,8 @@ async function createTask(event) {
       alert(response.statusText);
     }
   }
-}
+// }
 
-  document.querySelector('.task-button').addEventListener('submit', createTask);
+  document.querySelector('.task-button').addEventListener('click', createTask);
 
 
