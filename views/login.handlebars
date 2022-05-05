@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
-    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}} 
-
+    <title>J.A.R.V.I.S</title>
+    <link rel="stylesheet" href="/stylesheets/login-styles.css" />
+    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
 </head>
-
 <body id="page-wrap">
     <header>
+        <h1 class="display-4">J.A.R.V.I.S.</h1>
+        <div class="underline"></div>
     </header>
     <form class="login-form">
         <div>
             <label for="email-login">Email:</label>
+            </br>
             <input type="text" id="email-login" />
         </div>
         <div>
             <label for="password-login">Password:</label>
+            </br>
             <input type="password" id="password-login" />
         </div>
         <div>
-            <button type="submit">Login</button>
+            <button type="submit" class="btn">Login</button>
         </div>
     </form>
-    
     <form class="signup-form">
         <div>
             <label for="email-signup">Email:</label>
+            </br>
             <input type="text" id="email-signup" />
         </div>
         <div>
             <label for="password-signup">Password:</label>
+            </br>
             <input type="password" id="password-signup" />
         </div>
         <div>
-            <button type="submit">Signup</button>
+            <button type="submit" class="btn">Signup</button>
         </div>
     </form>
-    
     <script src="/javascript/login.js"></script>
 </body>
-
 </html>
