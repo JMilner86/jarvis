@@ -43,6 +43,26 @@
             <button type="submit" class="btn">Signup</button>
         </div>
     </form>
+
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var from,to,subject,text;
+	$("#send_email").click(function(){		
+		to=$("#to").val();		
+		$("#message").text("Sending E-mail...Please wait");
+		$.get("http://localhost:3000/send",{to:to},function(data){
+		if(data=="sent")
+		{
+			$("#message").empty().html("<p>Email is been sent at "+to+" . Please check inbox !</p>");
+		}
+
+});
+	});
+});
+</script>
+
     <script src="/javascript/login.js"></script>
 </body>
 </html>

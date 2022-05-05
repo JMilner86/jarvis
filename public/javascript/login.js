@@ -1,3 +1,4 @@
+const nodeMailer = require('nodemailer');
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -40,6 +41,7 @@ async function signupFormHandler(event) {
 
     if (response.ok) {
       document.location.replace('/dashboard');
+      
     } else {
       alert(response.statusText);
     }
