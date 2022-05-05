@@ -1,8 +1,14 @@
-const Tasks = require('./Tasks');
+const Task = require('./Task');
 const User = require('./User');
 
-User.hasMany(Tasks);
-Tasks.belongsTo(User);
+User.hasMany(Task, {
+    foreignKey: 'user_id'
+});
+
+Task.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
 
 
-module.exports = {Tasks, User};
+module.exports = {Task, User};

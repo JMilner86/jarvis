@@ -1,26 +1,27 @@
 // Routes for the login page
 const router = require('express').Router();
+const { append } = require('express/lib/response');
 const sequelize = require('../config/connection');
-const { User, Tasks } = require('../models');
+const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
+    console.log(req.session.id);
     console.log('======================');
-    Tasks.findAll({
-    where: {
-        id: req.session.id
-    },
+    Task.findAll({
+    //where: {
+    //    user_id: req.session.id
+    //},
     attributes: [
         'id',
         'title',
         'task_info',
-        'task_timer'
+        // 'task_timer'
     ]
     })
     .then(dbTaskData => {
-        const tasks = dbTaskData.map(tasks => tasks.get({ plain: true }));
-        res.render('dashboard', { tasks, loggedIn: true });
+        const task = dbTaskData.map(task => task.get({ plain: true }));
+        res.render('dashboard', { task, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -28,45 +29,87 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// router.get('/edit/:id', withAuth, (req, res) => {
-//     Post.findByPk(req.params.id, {
-//     attributes: [
-//         'id',
-//         'post_url',
-//         'title',
-//         'created_at',
-//         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-//     ],
-//     include: [
-//         {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//         include: {
-//             model: User,
-//             attributes: ['username']
-//         }
-//         },
-//         {
-//         model: User,
-//         attributes: ['username']
-//         }
-//     ]
-//     })
-//     .then(dbPostData => {
-//         if (dbPostData) {
-//         const post = dbPostData.get({ plain: true });
+router.post('/', withAuth, (req, res) => {
+    Task.create({
+      title: req.body.title,
+      task_info: req.body.task_info,
+      // task_timer: req.session.task_timer
+    })
+      .then(dbTaskData => res.json(dbTaskData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+  router.get('/', (req, res) => {
+    console.log('==============')
+      Task.findAll({
+        // where: {
+        //   id: req.params.User
+        // },
+        attributes: [
+        'id',
+        'title',
+        'task_info',
+        // 'task_timer'
+        ]
+      })
+      .then(dbTaskData => {
+        const task = dbTaskData.map(task => task.get({ plain: true }));
+        res.render('task', { task, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+  });
+//app.get ('/dashboard', (req, res) => {
+  //  res.render('dashboard', {
+ //       title: '',
+  //      description: ''
+  //  });
+//});
+
+// router.get('/Task', withAuth, (req, res) => {
+    // Post.findByPk(req.params.id, {
+    // attributes: [
+    //     'id',
+    //     'post_url',
+    //     'title',
+    //     'created_at',
+    //     [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+    // ],
+    // include: [
+    //     {
+    //     model: Comment,
+    //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+    //     include: {
+    //         model: User,
+    //         attributes: ['username']
+    //     }
+    //     },
+    //     {
+    //     model: User,
+    //     attributes: ['username']
+    //     }
+    // ]
+    // })
+    // .then(dbPostData => {
+    //     if (dbPostData) {
+    //     const post = dbPostData.get({ plain: true });
         
-//         res.render('edit-post', {
-//             post,
-//             loggedIn: true
-//         });
-//         } else {
-//         res.status(404).end();
-//         }
-//     })
-//     .catch(err => {
-//         res.status(500).json(err);
-//     });
-// });
+    //     res.render('edit-post', {
+    //         post,
+    //         loggedIn: true
+    //     });
+    //     } else {
+    //     res.status(404).end();
+    //     }
+    // })
+    // .catch(err => {
+    //     res.status(500).json(err);
+    // });
+//});
 
 module.exports = router;

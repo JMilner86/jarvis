@@ -1,5 +1,5 @@
-
-const Tasks = require('../../models/Tasks');
+const connection = require('../../config/connection');
+const Task = require('../../models/Task');
 const User  = require('../../models/User');
 const router = require('express').Router();
 
@@ -13,12 +13,12 @@ router.get('/', (req, res) => {
       ],
       include: [
         {
-      model: Tasks,
+      model: Task,
       attributes: [
         'id',
         'title',
         'task_info',
-        'task_timer'
+        // 'task_timer'
       ]
     }
   ]
@@ -39,14 +39,15 @@ router.get('/:id', (req, res) => {
     },
     include: [
       {
-        model: Tasks,
+        model: Task,
         attributes: [        
         'id',
         'title',
         'task_info',
-        'task_timer'],
+        // 'task_timer'
+      ],
         include: {
-          model: Tasks,
+          model: Task,
           attributes: ['title']
         }
       }
@@ -99,6 +100,7 @@ router.post('/login', (req, res) => {
     }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
+    
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });

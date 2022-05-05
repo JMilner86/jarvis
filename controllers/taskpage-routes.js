@@ -1,16 +1,15 @@
-const connection = require('../../config/connection');
-const { Task, User } = require('../../models');
-// const User = require('../../models/User');
-const withAuth = require('../../utils/auth');
+const { Task } = require('../models');
+//const User = require('../../models/User');
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // Retrieves all the Task associated with the logged in user. (Thats what it's supposed to do)
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
   console.log('==============')
     Task.findAll({
-      where: {
-        id: req.params.User
-      },
+      // where: {
+      //   id: req.params.User
+      // },
       attributes: [
       'id',
       'title',
@@ -28,7 +27,7 @@ router.get('/', withAuth, (req, res) => {
   });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/tasks',  withAuth, (req, res) => {
   Task.create({
     title: req.body.title,
     task_info: req.body.task_info,
