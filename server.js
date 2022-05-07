@@ -1,5 +1,4 @@
 const path = require("path");
-const nodemailer = require("nodemailer");
 const express = require("express");
 const controllers = require("./controllers");
 const sequelize = require("./config/connection");
