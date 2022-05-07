@@ -1,79 +1,30 @@
 // Routes for the login page
-const router = require('express').Router();
-const { append } = require('express/lib/response');
-const sequelize = require('../config/connection');
-const { User, Task } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { append } = require("express/lib/response");
+const sequelize = require("../config/connection");
+const { User, Task } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', withAuth, (req, res) => {
-    console.log(req.session.userId);
-    console.log('======================');
-    Task.findAll({
+router.get("/", withAuth, (req, res) => {
+  console.log(req.session.userId);
+  console.log("======================");
+  Task.findAll({
     where: {
-       user_id: req.session.userId
+      user_id: req.session.userId,
     },
     attributes: [
-        'title',
-        'task_info',
-        // 'task_timer'
-    ]
+      "title",
+      "task_info"
+    ],
+  })
+    .then((dbTaskData) => {
+      const task = dbTaskData.map((task) => task.get({ plain: true }));
+      res.render("dashboard", { task, loggedIn: true });
     })
-    .then(dbTaskData => {
-        const task = dbTaskData.map(task => task.get({ plain: true }));
-        res.render('dashboard', { task, loggedIn: true });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
-
-//app.get ('/dashboard', (req, res) => {
-  //  res.render('dashboard', {
- //       title: '',
-  //      description: ''
-  //  });
-//});
-
-// router.get('/Task', withAuth, (req, res) => {
-    // Post.findByPk(req.params.id, {
-    // attributes: [
-    //     'id',
-    //     'post_url',
-    //     'title',
-    //     'created_at',
-    //     [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    // ],
-    // include: [
-    //     {
-    //     model: Comment,
-    //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //     include: {
-    //         model: User,
-    //         attributes: ['username']
-    //     }
-    //     },
-    //     {
-    //     model: User,
-    //     attributes: ['username']
-    //     }
-    // ]
-    // })
-    // .then(dbPostData => {
-    //     if (dbPostData) {
-    //     const post = dbPostData.get({ plain: true });
-        
-    //     res.render('edit-post', {
-    //         post,
-    //         loggedIn: true
-    //     });
-    //     } else {
-    //     res.status(404).end();
-    //     }
-    // })
-    // .catch(err => {
-    //     res.status(500).json(err);
-    // });
-//});
 
 module.exports = router;
