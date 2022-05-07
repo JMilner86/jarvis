@@ -5,27 +5,7 @@ const { User, Task } = require('../models');
 const withAuth = require ('../utils/auth')
 
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session.id);
-  console.log('======================');
-  Task.findAll({
-    where: {
-      user_id: req.session.id
-  },
-    attributes: [
-      'id',
-      'title',
-      'task_info',
-      // 'task_timer'
-    ]
-  })
-    .then(dbTaskData => {
-      const task = dbTaskData.map(task => task.get({ plain: true }));
-      res.render('login', { task, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      res.render('login');
 });
 
 router.get('/', withAuth, (req, res) => {

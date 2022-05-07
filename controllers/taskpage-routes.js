@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
       //   id: req.params.User
       // },
       attributes: [
-      'id',
       'title',
       'task_info',
       // 'task_timer'

@@ -6,14 +6,13 @@ const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session.id);
+    console.log(req.session.userId);
     console.log('======================');
     Task.findAll({
-    //where: {
-    //    user_id: req.session.id
-    //},
+    where: {
+       user_id: req.session.userId
+    },
     attributes: [
-        'id',
         'title',
         'task_info',
         // 'task_timer'
@@ -29,41 +28,6 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
-    Task.create({
-      title: req.body.title,
-      task_info: req.body.task_info,
-      // task_timer: req.session.task_timer
-    })
-      .then(dbTaskData => res.json(dbTaskData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-  router.get('/', (req, res) => {
-    console.log('==============')
-      Task.findAll({
-        // where: {
-        //   id: req.params.User
-        // },
-        attributes: [
-        'id',
-        'title',
-        'task_info',
-        // 'task_timer'
-        ]
-      })
-      .then(dbTaskData => {
-        const task = dbTaskData.map(task => task.get({ plain: true }));
-        res.render('task', { task, loggedIn: true });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-  });
 //app.get ('/dashboard', (req, res) => {
   //  res.render('dashboard', {
  //       title: '',
