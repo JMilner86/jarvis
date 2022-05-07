@@ -8,7 +8,7 @@
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #071A38;
+  color: #071a38;
   min-height: 100vh;
 }
 .dash-btn {
@@ -18,7 +18,7 @@
   width: 75%;
 }
 .btn {
-  color: #071A38;
+  color: #071a38;
   background-color: #ababab;
   border: 10px solid #ababab;
   border-radius: 10px;
@@ -35,11 +35,11 @@ h4 {
   text-align: center;
   margin-left: 2rem;
 }
-#create{
+#create {
   width: 65%;
 }
-#logout{
-width: 50%;
+#logout {
+  width: 50%;
 }
 .form-check {
   margin-top: 0.5rem;
@@ -49,14 +49,13 @@ width: 50%;
   border-radius: 1rem !important;
 }
 input:checked + label {
-  text-decoration: line-through 5px #34E5EB;
-  color: #8B8B8B;
+  text-decoration: line-through 5px #34e5eb;
+  color: #8b8b8b;
   text-align: center;
 }
 label {
   cursor: pointer;
 }
 .card {
-  background:rgba(0,0,0,0.0);
+  background: rgba(0, 0, 0, 0);
 }
-
