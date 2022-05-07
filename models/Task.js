@@ -19,10 +19,10 @@ Task.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        id: {
+        user_id: {
           type: DataTypes.INTEGER,
           references: {
-            model: 'User',
+            model: 'user',
             key: 'id'
           }
         }

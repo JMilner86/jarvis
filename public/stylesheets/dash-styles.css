@@ -1,54 +1,78 @@
 * {
-    background-size: auto;
-  }
-  .page-content {
-    background-image: url("/images/jarvis-img.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+  background-size: auto;
+}
+.page-content {
+  background-image: url("/images/jarvis-img.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #071A38;
+  min-height: 100vh;
+}
+.btn {
+  color: #071A38;
+  background-color: #ababab;
+  border: 10px solid #ababab;
+  border-radius: 10px;
+  /* box-sizing: border-box; */
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  /* padding: 10px, 20px, 30px, 20px; */
+  margin-left: 6em;
+}
+h1 {
+  font-size: 48px;
+  align-items: center;
+margin-left: .75em;
+}
+h2 {
+  /* margin-left: 21.75em; */
+  font-size: 36px;
+  color:#8b8b8b;
+  text-align: center;
+  /* border-bottom: 5px solid;
+  border-color: #34E5EB;
+  border-bottom-width: 30%; */
+}
+h4 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 2rem;
+}
+/* .underline {
+  border-bottom: 5px solid;
+  border-color: #34E5EB;
+  width: 30%;
+  margin-left: 28em;
+  margin-bottom: 2em;
+} */
+.form-check {
+  margin-top: 0.5em;
+  text-align: center;
+}
+.rounded {
+  border-radius: 1rem !important;
+}
+/* .text-gray {
     color: #071A38;
-    min-height: 100vh;
-  }
-  h1 {
-    font-size: 48px;
-    text-align: center;
-  }
-  h2 {
-    /* margin-left: 21.75em; */
-    font-size: 36px;
-    color:#8b8b8b;
-    text-align: center;
-    /* border-bottom: 5px solid;
-    border-color: #34E5EB;
-    border-bottom-width: 30%; */
-  }
-  .underline {
-    border-bottom: 5px solid;
-    border-color: #34E5EB;
-    width: 30%;
-    margin-left: 28em;
-    margin-bottom: 2em;
-  }
-  .form-check {
-    margin-top: 0.5em;
-    text-align: center;
-  }
-  .rounded {
-    border-radius: 1rem !important;
-  }
-  /* .text-gray {
-      color: #071A38;
-  } */
-  input:checked + label {
-    text-decoration: line-through 5px #34E5EB;
-    color: #8B8B8B;
-    text-align: center;
-  }
-  label {
-    cursor: pointer;
-  }
-  /* a {
-    text-decoration: none;
-  } */
+} */
+input:checked + label {
+  text-decoration: line-through 5px #34E5EB;
+  color: #8B8B8B;
+  text-align: center;
+}
+label {
+  cursor: pointer;
+}
+/* a {
+  text-decoration: none;
+} */
+
+.card {
+  background:rgba(0,0,0,0.0);
+}
+
