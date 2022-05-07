@@ -37,19 +37,10 @@ h4 {
 }
 #create{
   width: 65%;
-  /* margin-left: 6rem; */
-
 }
 #logout{
 width: 50%;
 }
-/* .underline {
-  border-bottom: 5px solid;
-  border-color: #34E5EB;
-  width: 30%;
-  margin-left: 28em;
-  margin-bottom: 2em;
-} */
 .form-check {
   margin-top: 0.5rem;
   text-align: center;
@@ -57,9 +48,6 @@ width: 50%;
 .rounded {
   border-radius: 1rem !important;
 }
-/* .text-gray {
-    color: #071A38;
-} */
 input:checked + label {
   text-decoration: line-through 5px #34E5EB;
   color: #8B8B8B;
@@ -68,10 +56,6 @@ input:checked + label {
 label {
   cursor: pointer;
 }
-/* a {
-  text-decoration: none;
-} */
-
 .card {
   background:rgba(0,0,0,0.0);
 }
