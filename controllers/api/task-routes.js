@@ -34,14 +34,7 @@ router.post('/', withAuth, (req, res) => {
     task_info: req.body.task_info,
     // task_timer: req.session.task_timer
   })
-    .then(dbTaskData => {
-      req.session.save(() => {
-        req.session.id = dbTaskData.id;
-        req.session.loggedIn = true;
-
-        res.json(dbTaskData);
-      })
-    })
+  .then(dbTaskData => res.json(dbTaskData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

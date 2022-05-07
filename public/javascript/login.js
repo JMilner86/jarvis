@@ -1,4 +1,4 @@
-const nodeMailer = require('nodemailer');
+// const nodeMailer = require('nodemailer');
 async function loginFormHandler(event) {
   event.preventDefault();
 
